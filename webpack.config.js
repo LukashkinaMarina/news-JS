@@ -6,16 +6,22 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.js'),
     mode: 'development',
+
     module: {
         rules: [
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.(js|jsx|ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            },
         ],
     },
     resolve: {
-        extensions: ['.js'],
+        extensions: ['.js', '.ts'],
     },
     output: {
         filename: 'index.js',

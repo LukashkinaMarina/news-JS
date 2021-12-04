@@ -16,7 +16,18 @@
     "author": "Aleh Serhiyenia",
     "license": "ISC",
     "homepage": "",
+    "dependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.16.0",
+        "@babel/preset-env": "^7.16.4",
+        "@babel/preset-typescript": "^7.16.0",
+        "babel-loader": "^8.2.3",
+        "babel-plugin-module-resolver": "^4.1.0",
+        "babel-plugin-styled-components": "^2.0.2",
+        "typescript": "^4.2.4"
+    },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
         "clean-webpack-plugin": "^3.0.0",
         "copy-webpack-plugin": "^7.0.0",
         "css-loader": "^5.1.0",
@@ -31,5 +42,13 @@
         "webpack-cli": "^4.5.0",
         "webpack-dev-server": "^3.11.2",
         "webpack-merge": "^5.7.3"
+    },
+    "lint-staged": {
+        "*.{ts,js,tsx,jsx}": [
+            "eslint --fix",
+            "node scripts/pre-commit-copyright.js",
+            "git add"
+        ],
+        "*.{ts,js,tsx,jsx,css,md}": "prettier --write"
     }
 }
